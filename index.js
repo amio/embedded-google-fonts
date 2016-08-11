@@ -26,7 +26,25 @@
   }
 
   function embedFonts (cssText) {
-    return cssText
+    var fontLocations = cssText.match(/https:\/\/[^)]+/g)
+    var fontLoadedPromises = fontLocations.map(function (location) {
+      return new Promise (function (resolve, reject) {
+        fetch(location).then(function (res) {
+          return res.blob()
+        }).then(function (blob) {
+          var reader = new FileReader()
+          reader.addEventListener('load', function () {
+            // Side Effect
+            cssText = cssText.replace(location, this.result)
+            resolve([location, this.result])
+          })
+          reader.readAsDataURL(blob)
+        }).catch(reject)
+      })
+    })
+    return Promise.all(fontLoadedPromises).then(function () {
+      return cssText
+    })
   }
 
   function outputResult (cssText) {
@@ -37,15 +55,22 @@
     console.error(e)
   }
 
-  function verifyURL (url) {
-    return true
-  }
-
   function initEventListeners () {
     urlInput.addEventListener('input', goGetIt)
     exampleButton.addEventListener('click', function () {
       urlInput.value = 'https://fonts.googleapis.com/css?family=Droid+Serif|Roboto'
       goGetIt()
     })
+  }
+
+  function verifyURL (url) {
+    return url.indexOf('https://fonts.googleapis.com/css?') === 0
+  }
+
+  function checkBrowserRequirements () {
+    if (typeof window.fetch === 'undefined') return false
+    if (typeof window.FileReader === 'undefined') return false
+    if (typeof window.URL === 'undefined') return false
+    return true
   }
 })()
