@@ -64,7 +64,7 @@
   }
 
   function verifyURL (url) {
-    return url.indexOf('https://fonts.googleapis.com/css?') === 0
+    return url.indexOf('https://fonts.googleapis.com/') === 0
   }
 
   function checkBrowserRequirements () {
