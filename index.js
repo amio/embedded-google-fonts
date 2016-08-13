@@ -9,7 +9,8 @@
     var url = urlInput.value
 
     if (!verifyURL(url)) {
-      console.error(url)
+      // console.info('unrecognized url:', url)
+      outputResult('')
       return
     }
 
