@@ -144,3 +144,14 @@ textarea:focus, .loaded textarea {
     display: none;
   }
 }
+
+.github-link {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  color: #FFF;
+  opacity: 0.7;
+}
+.github-link:hover {
+  opacity: 1
+}
