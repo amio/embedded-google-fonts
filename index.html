@@ -1,6 +1,7 @@
 <html>
   <head>
     <title>Embedded Google Fonts</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
     <link rel="stylesheet" hrel="font-roboto.css" />
     <link rel="stylesheet" href="index.css" />
   </head>
@@ -12,16 +13,31 @@
       </h1>
     </header>
     <div class="content">
-      <dl>
-        <dt>1: Choose fonts at <a href="https://fonts.google.com/">fonts.google.com</a></dt>
+      <dl id="step-i">
+        <dt>
+          <span class="step-count">1</span>
+          Choose fonts at <a href="https://fonts.google.com/">fonts.google.com</a>
+        </dt>
       </dl>
-      <dl>
-        <dt>2: Paste CSS url here:</dt>
-        <input type="text" id="css-url" /> <button id="eg-btn">example</button>
+      <dl id="step-ii">
+        <dt>
+          <label id="step-ii-label" for="css-url">
+            <span class="step-count">2</span> Paste CSS address
+          </label>
+        </dt>
+        <dd>
+          <input id="css-url" class="mdl-textfield" type="text" autofocus />
+          <button id="example-btn" class="mdl-button btn-flat">example</button>
+        </dd>
       </dl>
-      <dl>
-        <dt>3: Here you are:</dt>
-        <textarea name="output" id="output" cols="30" rows="10"></textarea>
+      <dl id="step-iii">
+        <dt>
+          <span class="step-count">3</span>
+          <span id="step-iii-hint">Waiting for a valid google font css url... ↑↑↑</span>
+        </dt>
+        <dd>
+          <textarea name="result" id="result" spellcheck="false"></textarea>
+        </dd>
       </dl>
     </div>
     <script src="index.js"></script>

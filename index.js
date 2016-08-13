@@ -1,7 +1,16 @@
 (function () {
   var urlInput = document.getElementById('css-url')
-  var exampleButton = document.getElementById('eg-btn')
-  var outputTextarea = document.getElementById('output')
+  var resultTextarea = document.getElementById('result')
+  var stepIII = document.getElementById('step-iii')
+  var stepIIIHint = document.getElementById('step-iii-hint')
+
+  var exampleButton = document.getElementById('example-btn')
+  var exampleURL = 'https://fonts.googleapis.com/css?family=Droid+Serif|Roboto'
+  urlInput.placeholder = exampleURL
+
+  var hintWaiting = 'Waiting for a valid google-fonts-css url ↑↑↑'
+  var hintResult = 'Here you are'
+  stepIIIHint.innerText = hintWaiting
 
   initEventListeners()
 
@@ -23,7 +32,7 @@
   function fetchCSS (url) {
     return fetch(url).then(function (res) {
       return res.text()
-    })
+    }, errorHandler)
   }
 
   function embedFonts (cssText) {
@@ -49,19 +58,29 @@
   }
 
   function outputResult (cssText) {
-    outputTextarea.value = cssText
+    resultTextarea.value = cssText
+    stepIII.className = cssText.length ? 'loaded' : ''
+    stepIIIHint.innerText = cssText.length ? hintResult : hintWaiting
   }
 
   function errorHandler (e) {
-    console.error(e)
+    console.info('ERR', e)
   }
 
   function initEventListeners () {
     urlInput.addEventListener('input', goGetIt)
+
     exampleButton.addEventListener('click', function () {
-      urlInput.value = 'https://fonts.googleapis.com/css?family=Droid+Serif|Roboto'
+      urlInput.value = exampleURL
       goGetIt()
     })
+
+    document.getElementById('step-ii-label').addEventListener('click', reset)
+  }
+
+  function reset () {
+    urlInput.value = ''
+    outputResult('')
   }
 
   function verifyURL (url) {
