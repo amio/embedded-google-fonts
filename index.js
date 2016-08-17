@@ -75,6 +75,10 @@
       goGetIt()
     })
 
+    resultTextarea.addEventListener('focus', function (e) {
+      e.target.select()
+    })
+
     document.getElementById('step-ii-label').addEventListener('click', reset)
   }
 
