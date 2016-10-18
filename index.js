@@ -1,4 +1,10 @@
+/* eslint-env browser */
+
 (function () {
+  if (!checkBrowserRequirements()) {
+    window.alert('Sorry, current browser not support.')
+  }
+
   var urlInput = document.getElementById('css-url')
   var resultTextarea = document.getElementById('result')
   var stepIII = document.getElementById('step-iii')
@@ -38,7 +44,7 @@
   function embedFonts (cssText) {
     var fontLocations = cssText.match(/https:\/\/[^)]+/g)
     var fontLoadedPromises = fontLocations.map(function (location) {
-      return new Promise (function (resolve, reject) {
+      return new Promise(function (resolve, reject) {
         fetch(location).then(function (res) {
           return res.blob()
         }).then(function (blob) {
