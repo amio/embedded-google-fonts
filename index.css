@@ -133,6 +133,7 @@ textarea {
   border: 2px solid transparent;
   transition: all 0.2s ease-out;
   font-size: 12px;
+  white-space: nowrap;
 }
 
 textarea:focus, .loaded textarea {
