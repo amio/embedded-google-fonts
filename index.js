@@ -11,7 +11,7 @@
   var stepIIIHint = document.getElementById('step-iii-hint')
 
   var exampleButton = document.getElementById('example-btn')
-  var exampleURL = 'https://fonts.googleapis.com/css?family=Droid+Serif|Roboto'
+  var exampleURL = 'https://fonts.googleapis.com/icon?family=Material+Icons'
   urlInput.placeholder = exampleURL
 
   var hintWaiting = 'Waiting for a valid google-fonts-css url ↑↑↑'
