@@ -5,6 +5,14 @@ https://amio.github.io/embedded-google-fonts/
 
 ![Embedded Google Fonts Screenshot][screenshot]
 
+### Tips
+
+#### Font Subsetting
+
+You can use the `&text=` query parameter to only load a subset of font characters, which can significantly reduce the CSS file size.
+
+Example: `https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap&text=abc`
+
 ### License
 
 MIT
