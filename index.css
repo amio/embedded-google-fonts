@@ -191,3 +191,31 @@ textarea:focus, .loaded textarea {
 .github-link:hover {
   opacity: 1
 }
+
+.hidden {
+  display: none !important;
+}
+
+#loader {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid rgba(245, 85, 85, 0.3);
+  border-radius: 50%;
+  border-top-color: #F55;
+  animation: spin 1s ease-in-out infinite;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+#copy-btn {
+  margin-left: 1rem;
+}
+
+#copy-btn.copy-success {
+  color: #4CAF50;
+}
