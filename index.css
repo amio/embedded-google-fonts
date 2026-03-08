@@ -5,6 +5,9 @@ body {
   margin: 0;
   font-family: Roboto, sans-serif;
   font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 a {
@@ -12,10 +15,25 @@ a {
 }
 
 .content {
-  box-sizing: border-box;
-  padding: 0 3rem;
-  max-width: 900px;
+  flex: 1;
+  width: 90vw;
+  max-width: 1000px;
   margin: 0 auto;
+  box-sizing: border-box;
+  display: flex;
+  gap: 3rem;
+  padding: 3rem 0;
+  flex-direction: column;
+}
+
+#step-iii {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    dd {
+        flex: 1;
+    }
 }
 
 /*
@@ -101,21 +119,21 @@ header i {
 }
 
 dl {
-  flex: 1;
-  margin: 3rem 0 0 0;
+  margin: 0;
 }
 
 .step-count {
   display: inline-block;
-  line-height: 1.4em;
-  width: 1.4em;
+  line-height: 1.6em;
+  width: 1.6em;
   text-align: center;
   background-color: #EEE;
-  margin-right: 0.4em;
+  margin-right: 0.4rem;
+  border-radius: 15%;
 }
 
 dd {
-  margin-left: 2em;
+  margin-left: 2.4rem;
   padding: 0.6em 0;
 }
 
@@ -129,20 +147,22 @@ dd {
 }
 
 .tip {
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   opacity: 0.5;
   padding-top: 0;
 }
 
 .tip code {
   font-family: monospace;
-  background: #f5f5f5;
-  padding: 2px 4px;
+  background: #ddd;
+  padding: 0 4px;
+  margin: 0 4px;
+  border-radius: 3px;
 }
 
 textarea {
   width: 100%;
-  height: 300px;
+  height: 100%;
   font-family: monospace;
   border: 2px solid transparent;
   transition: all 0.2s ease-out;

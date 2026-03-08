@@ -15,7 +15,7 @@
   urlInput.placeholder = exampleURL
 
   var hintWaiting = 'Waiting for a valid google-fonts-css url ↑↑↑'
-  var hintResult = 'Here you are'
+  var hintResult = 'Copy the generated CSS below'
   stepIIIHint.innerText = hintWaiting
 
   initEventListeners()
