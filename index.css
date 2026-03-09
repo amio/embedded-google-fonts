@@ -68,22 +68,38 @@ input, textarea {
 }
 
 .mdl-button {
-  height: 36px;
-  line-height: 36px;
-  padding: 0 16px;
+  height: 32px;
+  line-height: 32px;
+  padding: 0 12px;
   font-size: 14px;
-  font-weight: bold;
-  text-transform: uppercase;
-  border: none;
+  font-weight: 500;
+  text-transform: none;
+  border: 1px solid #EEE;
+  border-radius: 8px;
   transition: all 0.2s ease-out;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #FFF;
+  color: #333;
 }
 
 .btn-flat {
   background-color: transparent;
+  border-color: transparent;
+  color: #F55;
 }
 
 .btn-flat:hover {
-  background-color: #EEE;
+  background-color: #FFF0F0;
+  border-color: #F55;
+}
+
+.copy-success-icon {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
 }
 
 /*
@@ -218,4 +234,5 @@ textarea:focus, .loaded textarea {
 
 #copy-btn.copy-success {
   color: #4CAF50;
+  border-color: #4CAF50;
 }
