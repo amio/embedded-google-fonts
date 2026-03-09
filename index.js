@@ -9,6 +9,8 @@
   var resultTextarea = document.getElementById('result')
   var stepIII = document.getElementById('step-iii')
   var stepIIIHint = document.getElementById('step-iii-hint')
+  var loader = document.getElementById('loader')
+  var copyBtn = document.getElementById('copy-btn')
 
   var exampleButton = document.getElementById('example-btn')
   var exampleURL = 'https://fonts.googleapis.com/icon?family=Material+Icons'
@@ -29,10 +31,18 @@
       return
     }
 
+    loader.classList.remove('hidden')
+    stepIIIHint.classList.add('hidden')
+    copyBtn.classList.add('hidden')
+
     fetchCSS(url)
       .then(embedFonts)
       .then(outputResult)
-      .catch(errorHandler)
+      .catch(function (e) {
+        loader.classList.add('hidden')
+        stepIIIHint.classList.remove('hidden')
+        errorHandler(e)
+      })
   }
 
   function fetchCSS (url) {
@@ -64,9 +74,17 @@
   }
 
   function outputResult (cssText) {
+    loader.classList.add('hidden')
+    stepIIIHint.classList.remove('hidden')
     resultTextarea.value = cssText
     stepIII.className = cssText.length ? 'loaded' : ''
     stepIIIHint.innerText = cssText.length ? hintResult : hintWaiting
+
+    if (cssText.length) {
+      copyBtn.classList.remove('hidden')
+    } else {
+      copyBtn.classList.add('hidden')
+    }
   }
 
   function errorHandler (e) {
@@ -86,6 +104,18 @@
     })
 
     document.getElementById('step-ii-label').addEventListener('click', reset)
+
+    copyBtn.addEventListener('click', function () {
+      navigator.clipboard.writeText(resultTextarea.value).then(function () {
+        var originalText = copyBtn.innerText
+        copyBtn.innerText = '✔'
+        copyBtn.classList.add('copy-success')
+        setTimeout(function () {
+          copyBtn.innerText = originalText
+          copyBtn.classList.remove('copy-success')
+        }, 1000)
+      })
+    })
   }
 
   function reset () {

@@ -4,7 +4,7 @@
     <title>Embedded Google Fonts</title>
     <meta name="description" content="Embed base64 encoded google fonts into css">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
-    <link rel="stylesheet" hrel="font-roboto.css" />
+    <link rel="stylesheet" href="font-roboto.css" />
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
@@ -39,6 +39,8 @@
         <dt>
           <span class="step-count">3</span>
           <span id="step-iii-hint">Waiting for a valid google font css url... ↑↑↑</span>
+          <span id="loader" class="hidden"></span>
+          <button id="copy-btn" class="mdl-button btn-flat hidden">Copy</button>
         </dt>
         <dd>
           <textarea name="result" id="result" spellcheck="false" resize="false"></textarea>
