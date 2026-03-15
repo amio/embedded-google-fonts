@@ -68,56 +68,37 @@ input, textarea {
 }
 
 .mdl-button {
-  height: 38px;
-  line-height: 38px;
-  padding: 0 24px;
+  height: 32px;
+  line-height: 32px;
+  padding: 0 12px;
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 500;
   text-transform: none;
-  border: 2px solid #F55;
-  border-radius: 100px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid #EEE;
+  border-radius: 8px;
+  transition: all 0.2s ease-out;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   background-color: #FFF;
-  color: #F55;
-  outline: none;
-  box-shadow: 0 4px 6px rgba(245, 85, 85, 0.12);
-  letter-spacing: 0.5px;
-}
-
-.mdl-button:hover {
-  background-color: #F55;
-  color: #FFF;
-  box-shadow: 0 6px 15px rgba(245, 85, 85, 0.25);
-  transform: translateY(-1px);
-}
-
-.mdl-button:active {
-  transform: translateY(1px);
-  box-shadow: 0 2px 4px rgba(245, 85, 85, 0.2);
+  color: #333;
 }
 
 .btn-flat {
-  background-color: #FFF0F0;
+  background-color: transparent;
   border-color: transparent;
   color: #F55;
-  box-shadow: none;
 }
 
 .btn-flat:hover {
-  background-color: #FFE4E4;
+  background-color: #FFF0F0;
   border-color: #F55;
-  color: #F55;
-  transform: none;
-  box-shadow: none;
 }
 
 .copy-success-icon {
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   fill: currentColor;
 }
 
@@ -254,12 +235,4 @@ textarea:focus, .loaded textarea {
 #copy-btn.copy-success {
   color: #4CAF50;
   border-color: #4CAF50;
-  background-color: #FFF;
-  box-shadow: 0 4px 6px rgba(76, 175, 80, 0.12);
-}
-
-#copy-btn.copy-success:hover {
-  background-color: #4CAF50;
-  color: #FFF;
-  box-shadow: 0 6px 15px rgba(76, 175, 80, 0.25);
 }
