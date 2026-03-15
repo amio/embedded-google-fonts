@@ -107,11 +107,14 @@
 
     copyBtn.addEventListener('click', function () {
       navigator.clipboard.writeText(resultTextarea.value).then(function () {
-        var originalText = copyBtn.innerText
-        copyBtn.innerText = '✔'
+        var btnText = copyBtn.querySelector('.btn-text')
+        var successIcon = copyBtn.querySelector('.copy-success-icon')
+        btnText.classList.add('hidden')
+        successIcon.classList.remove('hidden')
         copyBtn.classList.add('copy-success')
         setTimeout(function () {
-          copyBtn.innerText = originalText
+          btnText.classList.remove('hidden')
+          successIcon.classList.add('hidden')
           copyBtn.classList.remove('copy-success')
         }, 1000)
       })
